@@ -73,10 +73,13 @@ function cadastrarDespesas() {
     // executar o método gravar de Bd somente se a validação for bem sucedida
     if(despesa.validarDados()) {
         // se retornar true gravar
-        // bd.gravar(despesa)
-        console.log('Dados válidos')
+        bd.gravar(despesa)
+        $('#sucessoGravacao').modal('show')
     } else {
         console.log('Dados inválidos')
+        // dialog de erro usando JQuery para mostrar o modal
+        $('#erroGravacao').modal('show')
+
     } 
 
 }

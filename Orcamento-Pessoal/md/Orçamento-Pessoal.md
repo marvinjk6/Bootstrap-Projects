@@ -42,3 +42,14 @@ O processo de validação precisa acontecer antes de gravar a despesa em local s
 * o método validar dados vai percorrer todos os atributos do Objeto Despesa;
 * for i in this -> retorna o indice de um array ou atributos de um objeto, que permite ter acesso ao valor do array ou do objeto
 * se o retorno for igual a null, vazio, ou undefined
+
+#### Validando dados antes do registro parte 2
+
+A ideia é fazer a parte visual do processo de validação de dados, exibir um dialog caso os dados não tenham sido preenchidos corretamente notificando o usuário, se tudo foi preenchido corretamente exibir um dialog também mas com a informação de que os dados foram salvos com sucesso.
+
+* para fazer o dialog será usado o componente modal do Bootstrap
+* foram feitos alguns ajustes, como alteração de cor e texto do modal
+  
+* o modal precisa ser mostrado depois que o botão de salvar a despesa for clicado, seja pelo sucesso ou erro no preenchimento dos dados
+    -   será usado o JQuery para fazer a lógica do modal apareder ou não
+    -   foi colocado data-dismiss="modal" no botão Voltar e Corrigir, para ao ser clicado o modal sair da tela
