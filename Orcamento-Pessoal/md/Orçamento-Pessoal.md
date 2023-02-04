@@ -34,3 +34,11 @@ A função gravar é responsável por armazenar o objeto despesa em localStorage
 
     * a função gravar agora passa a ser um método de Bd
     * para construir o índice dinâmico é preciso armazenar o índice também em Local Storage, Bd precisa ter condições de identificar qual o próximo índice que pode ser usado para inserção do registro
+
+##### Validando dados antes do registro parte 1
+
+O processo de validação precisa acontecer antes de gravar a despesa em local storage, o Objeto Despesa terá um método fará a validação de seus próprios atributos.
+
+* o método validar dados vai percorrer todos os atributos do Objeto Despesa;
+* for i in this -> retorna o indice de um array ou atributos de um objeto, que permite ter acesso ao valor do array ou do objeto
+* se o retorno for igual a null, vazio, ou undefined

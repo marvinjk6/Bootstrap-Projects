@@ -8,6 +8,17 @@ class Despesa {
         this.descricao = descricao
         this.valor = valor
     }
+
+    validarDados() {
+        // i são os atributos, this[i] são os valores, i é o índice
+        // se algum desses atributos tiverem null, vazio ou undefined como valor o método retorna false
+        for(let i in this) {
+            if(this[i] == undefined || this[i] == "" || this[i] == null) {
+                return false
+            } 
+        } 
+        return true
+    }
 }
 
 class Bd {
@@ -59,8 +70,14 @@ function cadastrarDespesas() {
         descricao.value,
         valor.value)
 
-    // executar o método gravar de Bd    
-    bd.gravar(despesa)
+    // executar o método gravar de Bd somente se a validação for bem sucedida
+    if(despesa.validarDados()) {
+        // se retornar true gravar
+        // bd.gravar(despesa)
+        console.log('Dados válidos')
+    } else {
+        console.log('Dados inválidos')
+    } 
 
 }
 
