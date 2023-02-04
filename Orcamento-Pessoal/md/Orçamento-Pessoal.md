@@ -25,3 +25,12 @@ A função gravar é responsável por armazenar o objeto despesa em localStorage
     - o primeiro é a identificação do objeto que será armazenado -> será despesa
     - o segundo é o dado que será armazenado -> esse dado precisa ser encaminhado através da anotação JSON
 * usar Ctrl + f5 -> para atualizar a página e garantir que os efeitos do localStorage funcionem
+
+### Criando a classe BD e índices dinâmicos
+
+* A classe BD vai permitir instanciar um objeto que vai lidar com o banco de dados da aplicação que será o localStorage
+
+* É necesssário criar uma lógica para gerar índices dinâmicos, para que ao armazenar em Local Storage seja gerado uma nova identificação para a despesa, isso vai fazer com que não sobreponha a despesa que já está armazenada
+
+    * a função gravar agora passa a ser um método de Bd
+    * para construir o índice dinâmico é preciso armazenar o índice também em Local Storage, Bd precisa ter condições de identificar qual o próximo índice que pode ser usado para inserção do registro

@@ -10,7 +10,37 @@ class Despesa {
     }
 }
 
+class Bd {
 
+    constructor() {
+        // primeiro assim que bd é criado ele vai tentar pegar um id em local storage, se ele não encontrar vai setar id como zero
+        let id = localStorage.getItem('id')
+        if(id === null) {
+            localStorage.setItem('id', 0)
+        }
+    }
+
+    getProximoId() {
+        // esse método retorna o próximo id, buscando o id já existente em local storage somando mais um
+        let proximoId = localStorage.getItem('id')
+        return parseInt(proximoId) + 1
+    }
+
+    gravar(despesa) {
+
+        // atribuindo o próximoId a id
+        let id = this.getProximoId()
+
+        // armazenando o valor de despesa tendo como identificação o valor gerado por getPróximoId
+        localStorage.setItem(id, JSON.stringify(despesa))
+        
+        // armazenado a identificação id com o valor de getProximoId 
+        localStorage.setItem('id', id)
+          
+    }
+}
+
+let bd = new Bd()
 
 function cadastrarDespesas() {
     
@@ -29,12 +59,8 @@ function cadastrarDespesas() {
         descricao.value,
         valor.value)
 
-    gravar(despesa)
+    // executar o método gravar de Bd    
+    bd.gravar(despesa)
 
 }
 
-function gravar(despesa) {
-
-    localStorage.setItem('despesa', JSON.stringify(despesa))
-    
-}
