@@ -16,3 +16,12 @@ os navegadores modernos de forma geral implementam recursos de armazenamento den
     * Session Storage é um armazenamento temporário
 
 Web SQL e IndexedDB: suportam uma quantidade maior de dados e podem ser usados para aplicações mais complexas
+
+#### Armazenando despesa em localStorage
+
+A função gravar é responsável por armazenar o objeto despesa em localStorage
+
+* localStorage.setItem(): o método setItem() recebe 2 parametros
+    - o primeiro é a identificação do objeto que será armazenado -> será despesa
+    - o segundo é o dado que será armazenado -> esse dado precisa ser encaminhado através da anotação JSON
+* usar Ctrl + f5 -> para atualizar a página e garantir que os efeitos do localStorage funcionem

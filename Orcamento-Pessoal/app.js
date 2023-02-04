@@ -1,5 +1,4 @@
 
-// criando a classe que vai representar despesa
 class Despesa {
     constructor(ano, mes, dia, tipo, descricao, valor) {
         this.ano = ano
@@ -22,8 +21,6 @@ function cadastrarDespesas() {
     let descricao = document.getElementById("descricao")
     let valor = document.getElementById("valor")
 
-    console.log()
-
     let despesa = new Despesa(
         ano.value, 
         mes.value, 
@@ -32,6 +29,12 @@ function cadastrarDespesas() {
         descricao.value,
         valor.value)
 
-    console.log(despesa)
+    gravar(despesa)
 
+}
+
+function gravar(despesa) {
+
+    localStorage.setItem('despesa', JSON.stringify(despesa))
+    
 }
