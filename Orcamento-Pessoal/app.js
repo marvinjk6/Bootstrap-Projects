@@ -115,7 +115,7 @@ class Bd {
             despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
         }
 
-        console.log(despesasFiltradas)
+        return despesasFiltradas
 
     }
 }
@@ -172,13 +172,15 @@ function cadastrarDespesas() {
 }
 
 
-function carregaListaDespesa() {
+function carregaListaDespesa(despesas = [], filtro = false) {
 
-    let despesas = []
-    // recuperaRegistros cria e retorna um array de despesas, que será atribuido a variavel despesas 
-    despesas = bd.recuperarRegistros()
+    if(despesas.length == 0 && filtro == false) {
+        despesas = bd.recuperarRegistros()
+    }
+    
 
     let listaDespesas = document.getElementById('listaDespesas')
+    listaDespesas.innerHTML = ''
 
     /*
     <tr>
@@ -229,6 +231,11 @@ function pesquisarDespesa() {
 
     let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
     
-    bd.pesquisar(despesa)
+    // o método pesquisar retorna as despesas filtradas
+    let despesas = bd.pesquisar(despesa)
+
+    // passar as despesas filtradas como primeiro parametro e filtro como true, como o filtro agora é true a função bd.recuperarRegistro() não será executada e serão inseridos na página apenas as despesas filtradas 
+    carregaListaDespesa(despesas, true)
+
 }
 

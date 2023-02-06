@@ -82,3 +82,13 @@ O método recuperarRegistros que retorna os dados armazenados em Local Storage d
 
 * próximo passo é atribuir o método recuperaRegistros a uma variável, despesasFiltradas usar o método filtro e fazer as comparações com despesa que pesquisar recebe como parametro, que no caso são os valores do objeto despesa criando na função pesquisarDespesa() executada quando o botão é clicado 
 
+
+###### Orçamento Pessoal - Filtrando despesas parte 3
+
+A página de consulta quando for carregada deverá mostrar a todas as despesas, mas quando acionar os filtros apenas as depesas filtradas deverão aparecer.
+
+* foi adicionado dois parametros - despesas com um Array vazio e um filtro false, como parametros default.
+
+* carregaListaDespesa é chamada pela primeira vez quando a página de consulta é carregada, os primeiros parametros são os default despesas = [], filtro = false, então foi colocada um condição caso sejam os valores default, é chamada a função despesas = bd.recuperarRegistros que vai trazer todos os dados armazenados em local Storage imprimir na página todas as despesas
+
+*  Agora é chamar a função carregaListaDespesa() dentro da função pesquisarDespesa(), passando como primeiro parametro as despesas filtradas e filtro como true
