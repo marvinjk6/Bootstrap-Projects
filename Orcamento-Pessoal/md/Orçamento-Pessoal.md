@@ -67,3 +67,10 @@ O próximo passa é listar as despesas em na pagina de consultas, em app.js onde
 
 Agora que foi recuperado as despesas armazenadas em Local Storage com o método recuperarRegistros de Bd que é executado quando a página consulta é carregada, na tag tbody foi colocado um id <tbody id="listaDespesas"> para inserir linhas e colunas através do jasvascript
 
+### Filtrando despesas parte 1
+
+Atualmente na página de consulta existe a relação de despesas armazenadas, agora o objetivo é fazer um filtro para selecionar uma despesa específica.
+
+* será criado um objeto baseado na classe despesa, esse objeto vai ter os detalhes do filtro.
+* em app.js a função pesquisarDespesa() vai ser disparada no momento que o botão com a lupa for clicado.
+* o Objeto com os filtros será enviado para o método pesquisar() de Bd 
