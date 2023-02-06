@@ -66,9 +66,13 @@ class Bd {
             if(despesa === null) {
                 continue
             }
-            despesas.push(despesa)      
+
+            // antes de dar o push, associar i = que representa a key ao atributo id do elemento
+            despesa.id = i
+            despesas.push(despesa)   
         }
 
+        console.log(despesas)   
         return despesas
     }
 
@@ -114,9 +118,13 @@ class Bd {
             console.log('Filtro do valor')
             despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
         }
-
         return despesasFiltradas
+    }
 
+    // o objeto bd que é o meio de campo entre a aplicação e localStorage
+    remover(id) {
+        // removeItem espera como parametro a key
+        localStorage.removeItem(id)
     }
 }
 
@@ -213,10 +221,23 @@ function carregaListaDespesa(despesas = [], filtro = false) {
                 break
         }
         linha.insertCell(1).innerHTML = d.tipo
-
         linha.insertCell(2).innerHTML = d.descricao
         linha.insertCell(3).innerHTML = d.valor
 
+        // criar o botão de exclusão
+        let btn = document.createElement('button')
+        btn.className = 'btn btn-danger'
+        btn.innerHTML = '<i class="fas fa-times"></i>'
+        btn.id = `id_despesa_${d.id}`
+        btn.onclick = function(){
+            //para o método remove de localStorage funcionar ele precisa encontrar a key que está em localStorage, substituind 'id_despesa_' por vazio
+            let id = this.id.replace('id_despesa_', '')
+            bd.remover(id)
+
+            // recarregar a página depois de remover a despesa
+            window.location.reload()
+        }
+        linha.insertCell(4).append(btn)
         
     })
 }

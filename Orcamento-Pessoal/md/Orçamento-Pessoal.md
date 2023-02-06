@@ -92,3 +92,13 @@ A página de consulta quando for carregada deverá mostrar a todas as despesas, 
 * carregaListaDespesa é chamada pela primeira vez quando a página de consulta é carregada, os primeiros parametros são os default despesas = [], filtro = false, então foi colocada um condição caso sejam os valores default, é chamada a função despesas = bd.recuperarRegistros que vai trazer todos os dados armazenados em local Storage imprimir na página todas as despesas
 
 *  Agora é chamar a função carregaListaDespesa() dentro da função pesquisarDespesa(), passando como primeiro parametro as despesas filtradas e filtro como true
+
+
+#### Removendo despesas
+
+* Primeiro é preciso criar um botão para cada despesa
+* Depois adicionar o ovento onclick para apagar a despesa:
+    - para isso é preciso de alguma forma ter acesso a key da despesa em local storage
+        - em recuperarRegistros antes de dar o push adicionar o atributo id e associar id com i que representa a key em local storage 
+        - adicionar id para o botão btn.id = `id_despesa_${d.id}`, foi colocado assim para não existir nenhum conflito
+    - no objeto Bd, foi adicionado um método remover() que recebe um id e atraves de localStorage.remove(id)
