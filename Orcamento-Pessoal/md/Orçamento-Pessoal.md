@@ -53,3 +53,12 @@ A ideia é fazer a parte visual do processo de validação de dados, exibir um d
 * o modal precisa ser mostrado depois que o botão de salvar a despesa for clicado, seja pelo sucesso ou erro no preenchimento dos dados
     -   será usado o JQuery para fazer a lógica do modal apareder ou não
     -   foi colocado data-dismiss="modal" no botão Voltar e Corrigir, para ao ser clicado o modal sair da tela
+
+
+#### Listando despesas parte 1 - pegando despesas de Local Storage
+
+O próximo passa é listar as despesas em na pagina de consultas, em app.js onde está a logica da aplicação criar uma função que vai ser excutada sempre que a pagina consulta for carregada.
+
+* o eventon onload será usado no body de cosulta com a função carregaListaDespesa
+* a lógica para recuperar os dados em Local Storage será estabelecida no objeto Bd com o método recuperarRegistros
+* recuperarRegistros será inserido na função carregaListaDespesa

@@ -19,6 +19,7 @@ class Despesa {
         } 
         return true
     }
+
 }
 
 class Bd {
@@ -48,6 +49,27 @@ class Bd {
         // armazenado a identificação id com o valor de getProximoId 
         localStorage.setItem('id', id)
           
+    }
+
+    recuperarRegistros() {
+
+        let id = localStorage.getItem('id')
+        let despesas = []
+        // loop para pegar as despesa
+        for(let i = 1; i <= id; i++) {
+
+            // inserir os objetos dentro de um array
+            let despesa = JSON.parse(localStorage.getItem(i))
+
+            // possibilidade de haver indices que foram pulados/removidos
+            // nesse caso pular esses indices
+            if(despesa === null) {
+                continue
+            }
+            despesas.push(despesa)      
+        }
+
+        return despesas
     }
 }
 
@@ -82,7 +104,6 @@ function cadastrarDespesas() {
         botaoVoltar.className = 'btn btn-success'
         
     } else {
-        console.log('Dados inválidos')
         $('#modalRegistraDespesa').modal('show')
         document.getElementById('modal_titulo').innerHTML = 'Os dados não foram salvos'
         document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
@@ -93,5 +114,14 @@ function cadastrarDespesas() {
     
     } 
 
+}
+
+
+function carregaListaDespesa() {
+
+    let despesas = []
+    // recuperaRegistros cria e retorna um array de despesas, que será atribuido a variavel despesas 
+    despesas = bd.recuperarRegistros()
+    console.log(despesas)
 }
 
