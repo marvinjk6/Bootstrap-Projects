@@ -122,6 +122,46 @@ function carregaListaDespesa() {
     let despesas = []
     // recuperaRegistros cria e retorna um array de despesas, que será atribuido a variavel despesas 
     despesas = bd.recuperarRegistros()
+
+    let listaDespesas = document.getElementById('listaDespesas')
     console.log(despesas)
+
+    /*
+    <tr>
+       0= <td>Data</td>
+       1= <td>Tipo</td>
+       2= <td>Descrição</td>
+       3= <td>Valor</td>      
+    </tr>
+    */
+
+    despesas.forEach(d => {
+
+        //criando a linha (tr)
+        let linha = listaDespesas.insertRow()
+
+        // criar as colunas
+        linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`  
+
+        // ajustar o tipo que é uma string, switch faz comparação por identico
+        switch(d.tipo) {
+            case '1': d.tipo = 'Alimentação'
+                break
+            case '2': d.tipo = 'Educação'
+                break
+            case '3': d.tipo = 'Lazer'
+                break
+            case '4': d.tipo = 'Saúde'
+                break
+            case '5': d.tipo = 'Transporte'
+                break
+        }
+        linha.insertCell(1).innerHTML = d.tipo
+
+        linha.insertCell(2).innerHTML = d.descricao
+        linha.insertCell(3).innerHTML = d.valor
+
+        
+    })
 }
 

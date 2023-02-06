@@ -62,3 +62,8 @@ O próximo passa é listar as despesas em na pagina de consultas, em app.js onde
 * o eventon onload será usado no body de cosulta com a função carregaListaDespesa
 * a lógica para recuperar os dados em Local Storage será estabelecida no objeto Bd com o método recuperarRegistros
 * recuperarRegistros será inserido na função carregaListaDespesa
+
+#### Listando despesas parte 2 - inserindo despesa na tela
+
+Agora que foi recuperado as despesas armazenadas em Local Storage com o método recuperarRegistros de Bd que é executado quando a página consulta é carregada, na tag tbody foi colocado um id <tbody id="listaDespesas"> para inserir linhas e colunas através do jasvascript
+
