@@ -102,6 +102,14 @@ function cadastrarDespesas() {
         let botaoVoltar = document.getElementById('voltar')
         botaoVoltar.innerHTML = 'voltar'
         botaoVoltar.className = 'btn btn-success'
+
+        // limpar os campos se a despesa for armazenada
+        ano.value = ''
+        mes.value = ''
+        dia.value = ''
+        tipo.value = ''
+        descricao.value = '' 
+        valor.value = ''
         
     } else {
         $('#modalRegistraDespesa').modal('show')
