@@ -57,9 +57,9 @@ A ideia é fazer a parte visual do processo de validação de dados, exibir um d
 
 #### Listando despesas parte 1 - pegando despesas de Local Storage
 
-O próximo passa é listar as despesas em na pagina de consultas, em app.js onde está a logica da aplicação criar uma função que vai ser excutada sempre que a pagina consulta for carregada.
+O próximo passo é listar as despesas em pagina de consultas, em app.js onde está a logica da aplicação criar uma função que vai ser excutada sempre que a pagina consulta for carregada.
 
-* o eventon onload será usado no body de cosulta com a função carregaListaDespesa
+* o evento onload será usado no body de consulta com a função carregaListaDespesa
 * a lógica para recuperar os dados em Local Storage será estabelecida no objeto Bd com o método recuperarRegistros
 * recuperarRegistros será inserido na função carregaListaDespesa
 
@@ -74,3 +74,11 @@ Atualmente na página de consulta existe a relação de despesas armazenadas, ag
 * será criado um objeto baseado na classe despesa, esse objeto vai ter os detalhes do filtro.
 * em app.js a função pesquisarDespesa() vai ser disparada no momento que o botão com a lupa for clicado.
 * o Objeto com os filtros será enviado para o método pesquisar() de Bd 
+
+
+### Filtrando despesas parte 2
+
+O método recuperarRegistros que retorna os dados armazenados em Local Storage de Bd, vai ser chamado dentro do método pesquisar de Bd, this.recuperarRegistros.
+
+* próximo passo é atribuir o método recuperaRegistros a uma variável, despesasFiltradas usar o método filtro e fazer as comparações com despesa que pesquisar recebe como parametro, que no caso são os valores do objeto despesa criando na função pesquisarDespesa() executada quando o botão é clicado 
+

@@ -73,7 +73,50 @@ class Bd {
     }
 
     pesquisar(despesa) {
-        console.log(despesa)
+
+        let despesasFiltradas = []
+
+        console.log(despesasFiltradas)
+
+        // despesas armazenadas em local storage
+        despesasFiltradas = this.recuperarRegistros()
+        // o filter não modifica o array original, então vamos atribuir ao array original despesasFiltradas
+
+        //ano
+        if(despesa.ano != '') {
+            console.log('Filtro do ano')
+            despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+        }
+
+        //mes
+        if(despesa.mes != '') {
+            console.log('Filtro do mês')
+            despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+        }
+
+        //dia
+        if(despesa.dia != '') {
+            console.log('Filtro do dia')
+            despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+        }
+        //tipo
+        if(despesa.tipo != '') {
+            console.log('Filtro do tipo')
+            despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+        }
+        //descrição
+        if(despesa.descricao != '') {
+            console.log('Filtro do descricao')
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+        }
+        //valor
+        if(despesa.valor != '') {
+            console.log('Filtro do valor')
+            despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor)
+        }
+
+        console.log(despesasFiltradas)
+
     }
 }
 
