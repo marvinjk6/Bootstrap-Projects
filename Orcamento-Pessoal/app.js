@@ -72,14 +72,25 @@ function cadastrarDespesas() {
 
     // executar o método gravar de Bd somente se a validação for bem sucedida
     if(despesa.validarDados()) {
-        // se retornar true gravar
         bd.gravar(despesa)
-        $('#sucessoGravacao').modal('show')
+        $('#modalRegistraDespesa').modal('show')
+        document.getElementById('modal_titulo').innerHTML = 'Os dados foram salvos'
+        document.getElementById('modal_titulo_div').className = 'modal-header text-success'
+        document.getElementsByClassName('modal-body')[0].innerHTML = 'Despesa Registrada com sucesso'
+        let botaoVoltar = document.getElementById('voltar')
+        botaoVoltar.innerHTML = 'voltar'
+        botaoVoltar.className = 'btn btn-success'
+        
     } else {
         console.log('Dados inválidos')
-        // dialog de erro usando JQuery para mostrar o modal
-        $('#erroGravacao').modal('show')
-
+        $('#modalRegistraDespesa').modal('show')
+        document.getElementById('modal_titulo').innerHTML = 'Os dados não foram salvos'
+        document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
+        document.getElementsByClassName('modal-body')[0].innerHTML = 'Por favor, preencha todos os campos'
+        let botaoVoltar = document.getElementById('voltar')
+        botaoVoltar.innerHTML = 'Voltar e corrigir'
+        botaoVoltar.className = 'btn btn-danger'
+    
     } 
 
 }
