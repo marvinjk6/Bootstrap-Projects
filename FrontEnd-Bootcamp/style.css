@@ -3,3 +3,9 @@
         width: 50%;
     }
 }
+
+@media(max-width: 576px) {
+    .text_center {
+        text-align: center;
+    }
+}
