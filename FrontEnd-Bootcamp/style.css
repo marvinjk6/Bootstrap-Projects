@@ -14,3 +14,7 @@ body::before {
         text-align: center;
     }
 }
+
+a {
+    text-decoration: none;
+}
